@@ -364,6 +364,7 @@ Robert W. Walker
 <li class="fragment"><p>How do we defend the shifting and warping if the timing of events is the crucial piece?</p></li>
 <li class="fragment"><p>Why MSE? MAD, MAPE and the like might be better.</p></li>
 <li class="fragment"><p>The forecasting literature has some excess zero solutions, did you consider them?</p></li>
+<li class="fragment"><p>What is in the X variants of ARIMA and how do they enter?</p></li>
 </ol>
 </section>
 <section id="some-comments" class="slide level2">
@@ -371,9 +372,20 @@ Robert W. Walker
 <ol type="1">
 <li class="fragment"><p>Drop digits in Table 1.</p></li>
 <li class="fragment"><p>There’s a hidden VAR here. You can use it to test Granger causality.</p></li>
+<li class="fragment"><p>Does this mean each forecast is one-step?</p></li>
 </ol>
-
-<img src="AGSMlogo.jpeg" class="slide-logo r-stretch"><div class="footer footer-default">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/Screenshot%202023-06-22%20at%202.23.07%20AM.png" class="quarto-discovered-preview-image"></p>
+<p></p><figcaption>Screen shot</figcaption><p></p>
+</figure>
+</div>
+<ol start="4" type="1">
+<li class="fragment"><p>Did you consider auto-ARIMA for forecasts at scale?</p></li>
+<li class="fragment"><p>What does warping mean for understanding dependence as we are changing the metric of time, no?</p></li>
+</ol>
+<p><img src="AGSMlogo.jpeg" class="slide-logo"></p>
+<div class="footer footer-default">
 <p>EPSA 2023: ME02 (22 Jun 2023)</p>
 </div>
 </section></section>

@@ -62,8 +62,18 @@ options(
 
 4. The forecasting literature has some excess zero solutions, did you consider them?
 
+5. What is in the X variants of ARIMA and how do they enter?
+
 ## Some Comments
 
 1. Drop digits in Table 1.
 
 2. There's a hidden VAR here.  You can use it to test Granger causality.
+
+3. Does this mean each forecast is one-step?
+
+![Screen shot](img/Screenshot 2023-06-22 at 2.23.07 AM.png)
+
+4. Did you consider auto-ARIMA for forecasts at scale?
+
+5. What does warping mean for understanding dependence as we are changing the metric of time, no?

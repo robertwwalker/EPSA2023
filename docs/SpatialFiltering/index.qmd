@@ -54,6 +54,11 @@ This is an efficient paper that hones in on and solves a clear problem.
 
 2. Like really do it; solve the problem for GLMs with linear regression as a special case.  But, generalized residuals....
 
+## The Magic Filter
+
+![Shot](img/Screenshot 2023-06-22 at 2.28.28 AM.png)
+
+A better explanation of what inputs and what is being calculated would help here.  Perhaps a walk-through example.
 
 ## Some Questions:
 
@@ -62,6 +67,8 @@ This is an efficient paper that hones in on and solves a clear problem.
 2. How well does this work with generalized residuals?  Personally, I think the Monte Carlo for that case would be far more interesting.
 
 3. Substantively, what does the ESF tell us?
+
+4. Any intuition for why the different results come from different criteria?
 
 ## Some Nits to Pick
 
