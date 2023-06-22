@@ -54,7 +54,7 @@ options(
 
 ## Some Questions:
 
-Why not continuous time models?
+Why not continuous time models?  Simultaneous equations in continuous time is the predator-prey origin.
 
 1. Advice on windows and number of clusters?  Could the data sort the second one?
 
