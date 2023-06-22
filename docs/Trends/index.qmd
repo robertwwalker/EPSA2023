@@ -1,0 +1,74 @@
+---
+title: "Trends and What to do with Them?"
+author: "Robert W. Walker"
+format: 
+   revealjs:
+     multiplex: true
+     preview-links: true
+     theme: [custom.scss]
+     scrollable: true
+     logo: AGSMlogo.jpeg
+     footer: "EPSA 2023: ME02 (22 Jun 2023)"
+     chalkboard: true
+     html-math-method: katex
+     incremental: true
+     slide-number: c/t
+     transition: convex
+     code-fold: true
+     code-tools: true
+---
+
+# Overview
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+```{r setup, include=FALSE}
+library(fontawesome)
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, echo=TRUE, tidy=TRUE, comment=NA, prompt=FALSE, fig.height=6, fig.width=6.5, fig.retina = 3, dev = 'svg', eval=TRUE)
+library(tidyverse)
+library(DT)
+theme_set(hrbrthemes::theme_ipsum_rc())
+options(
+  digits = 3,
+  width = 75,
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis",
+  ggplot2.discrete.colour = c("#D55E00", "#0072B2", "#009E73", "#CC79A7", "#E69F00", "#56B4E9", "#F0E442"),
+  ggplot2.discrete.fill = c("#D55E00", "#0072B2", "#009E73", "#CC79A7", "#E69F00", "#56B4E9", "#F0E442")
+)
+```
+
+1. Trends: Defined
+   + Deterministic [their interest]
+   + Stochastic [unit roots]
+   
+2. Three Common Approaches: Visualization, Testing for Trends, and Enders *Modeling*
+
+3. The Monte Carlo experiments
+
+4. ADL(2,2)
+
+## The Good: A Crucial Problem We Wave Our Hands At
+
+1. The authors have waded into an important mess and bring useful clarity to something ubiquitous and ubiquitously ignored.
+
+2. Unit Root tests have a power problem in small samples and a limited range of null/alternative combinations in this case.
+
+3. The bias discussion is really nice.
+
+## Some Questions:
+
+1. What is the ratio of trend variance to residual variance in the Monte Carlo studies in Section 2.1?
+
+2. In the paragraph that ends a section on page 9, tell me more about the ratios of the relevant variances.  When $\delta_{*} > 1$ in 12 and 13, the error variance is borderline trivial.
+
+3. Why the cubic trend?  I can think of a few good reasons why but I would like to see this explained.
+
+4. What about inducing collinearity via the trends when both x and y contain some deterministic trend?
+ + Why is the third order term different from zero in the second-order trend?
+
+## Some Comments
+
+1. Section 3 needs some beef.  Why does an ADL(2,2) capture the trending appropriately; what is the logic here?
+
+2. A bit of background for the reader on what these trended DGPs look like would be quite useful for context?  
