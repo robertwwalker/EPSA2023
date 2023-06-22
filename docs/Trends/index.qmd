@@ -72,3 +72,5 @@ options(
 1. Section 3 needs some beef.  Why does an ADL(2,2) capture the trending appropriately; what is the logic here?
 
 2. A bit of background for the reader on what these trended DGPs look like would be quite useful for context?  
+
+3. How do we interpret models with such results?  What varies?  The trend, the trended x, both?

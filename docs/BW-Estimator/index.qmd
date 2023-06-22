@@ -1,0 +1,113 @@
+---
+title: "Some Generalizations of Mundlak Estimators"
+author: "Robert W. Walker"
+format: 
+   revealjs:
+     multiplex: true
+     preview-links: true
+     theme: [custom.scss]
+     scrollable: true
+     logo: AGSMlogo.jpeg
+     footer: "EPSA 2023: ME02 (22 Jun 2023)"
+     chalkboard: true
+     html-math-method: katex
+     incremental: true
+     slide-number: c/t
+     transition: convex
+     code-fold: true
+     code-tools: true
+---
+
+# Overview
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+```{r setup, include=FALSE}
+library(fontawesome)
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, echo=TRUE, tidy=TRUE, comment=NA, prompt=FALSE, fig.height=6, fig.width=6.5, fig.retina = 3, dev = 'svg', eval=TRUE)
+library(tidyverse)
+library(DT)
+theme_set(hrbrthemes::theme_ipsum_rc())
+options(
+  digits = 3,
+  width = 75,
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis",
+  ggplot2.discrete.colour = c("#D55E00", "#0072B2", "#009E73", "#CC79A7", "#E69F00", "#56B4E9", "#F0E442"),
+  ggplot2.discrete.fill = c("#D55E00", "#0072B2", "#009E73", "#CC79A7", "#E69F00", "#56B4E9", "#F0E442")
+)
+```
+
+1. A Mundlak Estimator
+   
+2. Extensions
+
+3. The Monte Carlo experiments
+
+4. Replication Exercises
+
+## Motivation
+
+Nearly 20 years ago, Plumper, Troeger, and Manow (2005) argue that we have trivialized dynamic effects and timing in common panel data methods.  In the intervening two decades, sadly, little has changed.  As some panelists here have argued, we deploy dynamic models and do not interpret them.  BUT, there is not a great deal of attention paid to what they look like.
+
+This makes sense with (a) highly aggregated data [time between observations makes this unobservable] and (b) limited data in T.  As Kagalwala, et al. show, biases show up in some parameters in the model with alarming frequency and this is embedded in the forecasted time paths.  What to do?
+
+## A Mundlak Estimator
+
+Nearly 50 years ago, Yair Mundlak proposed a solution to the fixed/random intercepts debate in *Econometrica*.  It took a while to notice.
+
+The model recognizes a classic ANOVA decomposition: the covariance between a random variable and a constant is zero so the time varying and time constant parts can be isolated.  If we start with $$y_{it} = \alpha_{i} + X_{it}\beta + \epsilon_{it}$$ then we can rewrite it as the within [over time] component [$X^{W}_{it} = X_{it} - \overline{X}_{i}$] and the between [time-averaged] component [$X^{B}_{i}$] to yield:
+
+$$y_{it} = \alpha_{i} + X^{W}_{it}\beta_{W} + X^{B}_{i}\beta_{B} + \epsilon_{it}$$ 
+
+## Some Observations:
+
+1. The model nests a pooled estimator with $\beta_{B} = \beta_{W}$.  Moreover, because the covariance between a random variable and a constant is zero, there is no efficiency loss in doing this.
+
+
+2. This model was first proposed to solve political science problems by Thomas Plumper and Vera Troeger in their FEVD paper.  Edge cases and identification are messy.  The variance estimates are, to some extent, a sideshow.
+
+3. Given the proposal for panel data, the model is quiet on dynamics though it need not be so.  It does take a position on lagged dependent variables, implicitly, by not deploying them.  Dynamics will have to come in some other way.
+
+## The Model Itself
+
+There are a few easy ways to estimate over time dependencies in the model.  The easiest is to estimate:
+
+$$y_{it} = \alpha_{i} + X^{W}_{it}\beta_{W} + X^{B}_{i}\beta_{B} + \epsilon_{it}$$ 
+
+in the presence of ARMA errors.  Because the estimation space and the error space are independent; this can be 
+
+1. Modularized in OLS with ARMA errors.  
+2. Fit into a GEE framework. 
+3. Built into models of the time-constant [y_{B} \sim f($X_{B})$] and time-varying components [$y_{W} \sim f(X_{W})$] in a Bayesian framework.
+
+## The Estimation Goal
+
+Trivially, add terms.
+
+$$y_{it} = \alpha_{i} + X^{W}_{it}\beta_{W_{0}} + X^{W}_{i,t-1}\beta_{W_{1}} + X^{B}_{i}\beta_{B} + \epsilon_{it}$$ 
+Why?
+
+If the effects of $X$ on $y$ are varying, the richness picks it up.  Without modelling it, it cannot be recovered.
+
+## What Can We Do With This?
+
+1. Recover dynamic paths of changes in X on y.
+2. Use IC based methods for lag length determination that may vary by $i$.
+3. Embed a VAR as a testable alternative.
+
+## Monte Carlo Studies are Uninteresting
+
+Any of the three candidates will properly uncover the parameters; there is not much interesting in this.  
+
+1. Models that are missing features are inefficient or misspecified.  In particular, standard errors are generally incorrect.  
+2. The GEE performs well with a reasonable working covariance matrix.  It is inefficient by design but not terribly so.
+
+Lagged dependent variables can be troublesome as the lagged impacts of $X$ confound the estimates.
+
+## Replication Exercises
+
+**The offset term** and biases in the between estimates; we do know how to fix them -- sort of.
+
+If that is what we care about, this is a problem.  It was the FEVD concern.
+
