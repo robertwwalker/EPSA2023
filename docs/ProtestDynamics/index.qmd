@@ -54,6 +54,8 @@ options(
 
 ## Some Questions:
 
+Why not continuous time models?
+
 1. Advice on windows and number of clusters?  Could the data sort the second one?
 
 2. How do we defend the shifting and warping if the timing of events is the crucial piece?

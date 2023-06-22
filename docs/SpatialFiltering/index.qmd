@@ -40,7 +40,7 @@ options(
 
 1. Space
    
-2. Three Common Approaches: They focus on the middle case.
+2. Three Common Approaches: They focus on the first two cases.
 
 3. The Innovation: Eigenvector Spatial Filtering [ESF]
 
